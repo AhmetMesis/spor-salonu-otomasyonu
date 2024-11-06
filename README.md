@@ -64,3 +64,4 @@ Spor salonu otomasyon sisteminin amacı, üyelerin kayıtlarını ve antrenman p
 
 --- 
 
+![spor](https://github.com/user-attachments/assets/7238a8ad-4e72-4e27-a369-cd678b9eccf4)
