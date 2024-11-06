@@ -1,11 +1,11 @@
 **Proje Başlığı:**
-Spor Salonu Otomasyonu
+- Spor Salonu Otomasyonu
 
 ---
 **Proje ekibindeki kişiler:** 
-Ali Erol
-Ahmet Meşiş
-Emin Roni Bingöl
+- Ali Erol
+- Ahmet Meşiş
+- Emin Roni Bingöl
 ---
 
 **Proje Gereksinimi:**
