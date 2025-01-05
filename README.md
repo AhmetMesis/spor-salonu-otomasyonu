@@ -1,67 +1,119 @@
-**Proje Başlığı:**
-- Spor Salonu Otomasyonu
+# Proje Başlığı:
+Spor Salonu Otomasyonu
 
----
-**Proje ekibindeki kişiler:** 
-- Ali Erol
+## Proje Ekibindeki Kişiler:
 - Ahmet Meşiş
+- Ali Erol
 - Emin Roni Bingöl
----
 
-**Proje Gereksinimi:**
-Spor salonu otomasyon sisteminin amacı, üyelerin kayıt bilgilerini ve kişisel antrenman programlarını etkin bir şekilde takip etmek, eğitmenlerin görev tanımlarını, maaş bilgilerini ve performanslarını yönetmek, ayrıca üyelerin abone oldukları programlarla ilgili tüm verileri düzenli bir şekilde kaydetmektir. Bu sistem, üyeler, eğitmenler, antrenman programları ve abonelikler gibi önemli veri noktalarını entegre ederek kapsamlı bir veri yönetimi sağlar. Böylece, spor salonu yönetimi, daha hızlı ve verimli bir şekilde operasyonlarını yürütürken, üyeler ve eğitmenler arasındaki etkileşimi de optimize eder.
+## Gereksinimler:
 
----
+### Üye Rolündeki Kullanıcılar İçin Gereksinimler:
+- **Üye Kayıt ve Güncelleme**: Üyeler, spor salonuna kayıt olabilir ve kişisel bilgilerini güncelleyebilir.
+- **Programlara Katılım**: Üyeler, mevcut programlara katılabilir ve katıldıkları programları görüntüleyebilir.
+- **Ödeme Yapma**: Üyeler, katıldıkları programlar için ödeme yapabilir ve ödeme geçmişlerini görüntüleyebilir.
+- **Ekipman Kullanımı**: Üyeler, spor salonundaki ekipmanları kullanabilir ve ekipmanların durumunu görüntüleyebilir.
 
-**Varlıklar ve Nitelikleri:**
+### Antrenör Rolündeki Kullanıcılar İçin Gereksinimler:
+- **Program Yönetimi**: Antrenörler, spor salonundaki programları oluşturabilir, güncelleyebilir ve silebilir.
+- **Üye Takibi**: Antrenörler, programlarına katılan üyeleri takip edebilir ve üyelerin performanslarını değerlendirebilir.
+- **Maaş Bilgileri**: Antrenörler, maaş bilgilerini görüntüleyebilir ve maaş ödemelerini takip edebilir.
 
-**Üyeler**
+### Yönetici Rolündeki Kullanıcılar İçin Gereksinimler:
+- **Üye ve Antrenör Yönetimi**: Yöneticiler, üyeleri ve antrenörleri ekleyebilir, güncelleyebilir ve silebilir.
+- **Program ve Ekipman Yönetimi**: Yöneticiler, spor salonundaki programları ve ekipmanları yönetebilir.
+- **Ödeme ve Maaş Yönetimi**: Yöneticiler, üyelerin ödemelerini ve antrenörlerin maaşlarını yönetebilir.
+- **Kampanya Yönetimi**: Yöneticiler, indirim kampanyaları oluşturabilir ve yönetebilir.
 
-- **uye_id (PK)**: Üyelere özgü bir kimlik numarası.
-- **isim**: Üyenin adı.
-- **tel**: Üyenin telefon numarası.
-- **ağırlık**: Üyenin ağırlık bilgisi.
-- **boy**: Üyenin boy bilgisi.
-- **yağ oranı**: Üyenin vücut yağ oranı.
-- **kas oranı**: Üyenin vücut kas oranı.
-- **cinsiyet**: Üyenin cinsiyeti.
-- **kayıt_tarihi**: Üyenin sisteme kayıt olduğu tarih.
+## Varlıklar ve Nitelikleri:
 
-**Antrenörler**
+### Uyeler:
+- `uye_id` (PRIMARY KEY)
+- `isim`
+- `tel`
+- `agirlik`
+- `boy`
+- `yag_orani`
+- `cinsiyet`
+- `kayit_tarihi`
+- `dogum_trihi`
+- `uyelik_durumu`
 
-- **ant_id (PK)**: Antrenörlere özgü kimlik numarası.
-- **uzmanlık**: Antrenörün uzmanlık alanı.
-- **isim**: Antrenörün adı.
-- **tel_no**: Antrenörün telefon numarası.
+### Antrenorler:
+- `ant_id` (PRIMARY KEY)
+- `isim`
+- `tel_no`
+- `uzmanlik`
 
-**Programlar**
+### Programlar:
+- `program_id` (PRIMARY KEY)
+- `program_isim`
+- `ant_id` (FOREIGN KEY)
+- `aciklama`
 
-- **program_id (PK)**: Programlara özgü kimlik numarası.
-- **program_isim**: Programın adı.
-- **ant_id (FK)**: Programdan sorumlu antrenörün kimlik numarası.
-- **fiyat**: Programın ücreti.
+### ProgramFiyatlari:
+- `fiyat_id` (PRIMARY KEY)
+- `program_id` (FOREIGN KEY)
+- `sure_ay`
+- `fiyat`
 
-**Abonelik**
+### Maaslar:
+- `maas_id` (PRIMARY KEY)
+- `ant_id` (FOREIGN KEY)
+- `miktar`
+- `odenen_ay`
 
-- **abo_id (PK)**: Abonelik kimlik numarası.
-- **sure**: Aboneliğin süresi (ay olarak).
-- **program_id (FK)**: Aboneliğe dahil olan programın kimlik numarası.
-- **abo_ucreti**: Aboneliğin ücreti.
+### OdemeDetaylari:
+- `odeme_id` (PRIMARY KEY)
+- `uye_id` (FOREIGN KEY)
+- `program_id` (FOREIGN KEY)
+- `tutar`
+- `odeme_tarihi`
+- `odeme_yontemi`
+- `durum`
 
-**Üye Kayıt**
+### Ekipmanlar:
+- `ekipman_id` (PRIMARY KEY)
+- `isim`
+- `durum`
+- `bakim_tarihi`
+- `aciklama`
 
-- **uye_id (FK)**: Üyenin kimlik numarası.
-- **abo_id (FK)**: Üyenin abone olduğu abonelik kimlik numarası.
-- **Başlangıç_tarihi**: Aboneliğin başlangıç tarihi.
-- **Bitiş_tarihi**: Aboneliğin bitiş tarihi.
+### EkipmanProgram:
+- `ekipman_id` (FOREIGN KEY)
+- `program_id` (FOREIGN KEY)
 
-**Maaşlar**
+### Kampanyalar:
+- `kampanya_id` (PRIMARY KEY)
+- `isim`
+- `indirim_orani`
+- `baslangic_tarihi`
+- `bitis_tarihi`
 
-- **maas_id (PK)**: Maaş kimlik numarası.
-- **ant_id (FK)**: Maaşın ödeneceği antrenörün kimlik numarası.
-- **miktar**: Maaş miktarı.
-- **odenen_ay**: Maaşın ödendiği ay bilgisi.
+### UyeKatilim:
+- `katilim_id` (PRIMARY KEY)
+- `uye_id` (FOREIGN KEY)
+- `program_id` (FOREIGN KEY)
+- `baslangic_tarihi`
+- `bitis_tarihi`
 
---- 
+### Roller:
+- `rol_id` (PRIMARY KEY)
+- `rol_adi`
 
-![spor](https://github.com/user-attachments/assets/7238a8ad-4e72-4e27-a369-cd678b9eccf4)
+### admins:
+- `admin_id` (PRIMARY KEY)
+- `isim`
+- `sifre`
+- `rol_id` (FOREIGN KEY)
+
+## İlişkiler ve Sayısal Kısıtlamalar:
+- **Uyeler ve UyeKatilim**: 1-N (bir üye birden fazla katılımı olabilir ve bir katılımın bir uyesi vardır)
+- **Uyeler ve Kampanyalar**: N-1 (bir üye sadece bir kampanyaya katılabilir ve bir kampanya birden fazla üye tarafından kullanılabilir)
+- **Uyeler ve OdemeDetaylari**: 1-N (bir üye birden fazla ödeme yapabilir)
+- **Uyeler ve Programlar**: N-N (bir üye birden fazla programa katılabilir ve her programın birden fazla üyesi olabilir)
+- **Programlar ve UyeKatilim**: 1-N (bir program birden fazla üye tarafından katılınabilir)
+- **Programlar ve OdemeDetaylari**: 1-N (bir program birden fazla ödeme kaydına sahip olabilir)
+- **Programlar ve Antrenorler**: N-N (bir antrenörün birden fazla programa bakabilir ve bir programın birden fazla antrenörü olabilir)
+- **Programlar ve EkipmanProgram**: N-N (bir ekipman birden fazla programda kullanılabilir ve bir programın birden fazla ekipmanı olabilir)
+- **Antrenorler ve
