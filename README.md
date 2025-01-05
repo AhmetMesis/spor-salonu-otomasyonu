@@ -116,4 +116,6 @@ Spor Salonu Otomasyonu
 - **Programlar ve OdemeDetaylari**: 1-N (bir program birden fazla ödeme kaydına sahip olabilir)
 - **Programlar ve Antrenorler**: N-N (bir antrenörün birden fazla programa bakabilir ve bir programın birden fazla antrenörü olabilir)
 - **Programlar ve EkipmanProgram**: N-N (bir ekipman birden fazla programda kullanılabilir ve bir programın birden fazla ekipmanı olabilir)
-- **Antrenorler ve
+- **Antrenorler ve Maaslar**: 1-N (bir antrenör birden fazla maaş kaydına sahip olabilir)
+- **Ekipmanlar ve EkipmanProgram**: N-N (bir ekipman birden fazla programda kullanılabilir ve bir program birden fazla ekipmana sahip olabilir)
+- **Roller ve Admins**: 1-N (bir rol birden fazla admin tarafından kullanılabilir)
