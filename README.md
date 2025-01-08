@@ -119,3 +119,4 @@ Spor Salonu Otomasyonu
 - **Antrenorler ve Maaslar**: 1-N (bir antrenör birden fazla maaş kaydına sahip olabilir)
 - **Ekipmanlar ve EkipmanProgram**: N-N (bir ekipman birden fazla programda kullanılabilir ve bir program birden fazla ekipmana sahip olabilir)
 - **Roller ve Admins**: 1-N (bir rol birden fazla admin tarafından kullanılabilir)
+![UML](https://github.com/user-attachments/assets/66e9a1aa-046d-4b06-8af6-02cc1546fdc0)
